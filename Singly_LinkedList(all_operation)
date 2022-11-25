@@ -4,20 +4,22 @@ class node:
         self.next=next
         
 class linklist:
-    def __init__(self,head=None):
+    
+    def __init__(self,head=None): 
         self.head=head
-    def print(self):
+    
+    def print(self): # Print function
         c=self.head
         while c is not None:
             print(c.val,end="-->")
             c=c.next
        
-    def at_begin(self,val):
+    def at_begin(self,val): # insert node at begin
         n=node(val)
         n.next=self.head
         self.head=n
         
-    def at_end(self,val):
+    def at_end(self,val): # insert node at end
         n=node(val)
         if self.head is None:
             self.head=n
@@ -28,7 +30,8 @@ class linklist:
                 curr.next=n
                 break
             curr=curr.next
-    def at_insert_mid(self,val,pos):
+            
+    def at_insert_mid(self,val,pos): # insert node at middle
         c=self.head
         n=node(val)
         while True:
@@ -38,10 +41,10 @@ class linklist:
                 break
             c=c.next
         
-    def delete_at_b(self):
+    def delete_at_b(self): # delete node at begin
         self.head=self.head.next
         
-    def delete_at_end(self):
+    def delete_at_end(self): # delete node at end
         c=self.head
         while True:
             if c.next.next is None:
@@ -49,7 +52,7 @@ class linklist:
                 break
             c=c.next
             
-    def delete_at_mid(self,pos):
+    def delete_at_mid(self,pos): # delete node at middle
         c=self.head
         while True:
             if c.next.val==pos:
