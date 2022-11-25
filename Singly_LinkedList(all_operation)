@@ -1,0 +1,71 @@
+class node:
+    def __init__(self,val,next=None):
+        self.val=val
+        self.next=next
+        
+class linklist:
+    def __init__(self,head=None):
+        self.head=head
+    def print(self):
+        c=self.head
+        while c is not None:
+            print(c.val,end="-->")
+            c=c.next
+       
+    def at_begin(self,val):
+        n=node(val)
+        n.next=self.head
+        self.head=n
+        
+    def at_end(self,val):
+        n=node(val)
+        if self.head is None:
+            self.head=n
+            return
+        curr=self.head
+        while True:
+            if curr.next is None:
+                curr.next=n
+                break
+            curr=curr.next
+    def at_insert_mid(self,val,pos):
+        c=self.head
+        n=node(val)
+        while True:
+            if c.val==pos:
+                n.next=c.next
+                c.next=n
+                break
+            c=c.next
+        
+    def delete_at_b(self):
+        self.head=self.head.next
+        
+    def delete_at_end(self):
+        c=self.head
+        while True:
+            if c.next.next is None:
+                c.next=None
+                break
+            c=c.next
+            
+    def delete_at_mid(self,pos):
+        c=self.head
+        while True:
+            if c.next.val==pos:
+                c.next=c.next.next
+                break
+            c=c.next
+                
+            
+        
+y=linklist()
+y.at_end("1")
+y.at_end("3")
+y.at_end("8")
+y.at_end("78")
+#y.delete_at_b()
+#y.delete_at_end()
+y.at_insert_mid("23","3")
+y.delete_at_mid("8")
+y.print()
