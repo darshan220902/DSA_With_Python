@@ -1,0 +1,31 @@
+# implement stack using list
+stack=[]
+class push_and_pop:
+    def push(self,val):
+        print("push operation")
+        stack.append(val)
+        print(stack)
+        
+    def pop(self):
+        if len(stack)==0:
+           print("stack is empty:")
+        else:
+           print("pop operation")    
+           stack.pop()
+           print(stack)
+    def traversel(self):
+       print("traversel of stack")
+       for i in stack:
+           print(i)
+    def peek(self):
+        print("the peek ele is :")
+        print(stack[-1])
+     
+y=push_and_pop()
+y.push(1234)
+y.push(234)
+y.push(789)
+y.pop()
+y.traversel()
+y.peek()
+
